@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { Terminal } from "lucide-react";
 import { endOfDay, isWithinInterval, startOfDay } from "date-fns";
+import { Booking } from "@prisma/client";
 
 interface RoomPaymentProps {
     clientSecret: string;
@@ -23,7 +24,7 @@ type DateRangesType = {
     endDate: Date
 }
 
-function hasOverlap(startDate: Date, endDate: Date, dateRanges: DateRangesType) {
+function hasOverlap(startDate: Date, endDate: Date, dateRanges: DateRangesType[]) {
         const targetInterval = {start: startOfDay(new Date(startDate)), end: startOfDay(new Date(endDate))}
     
         for (const range of dateRanges){

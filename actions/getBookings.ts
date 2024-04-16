@@ -20,6 +20,6 @@ export const getBookings = async (hotelId: string) => {
         return bookings;
     } catch(error: any) {
         console.log(error)
-        return new Error(error)
+        return []
     }
 }
